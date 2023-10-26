@@ -16,7 +16,7 @@ export function fetchPosts() {
 
 export function fetchPost(id) {
   return new Promise((resolve, reject) => {
-    db.get(`SELECT rowid AS id, * FROM posts WHERE id = ${id}`, (err, row) => {
+    db.get('SELECT rowid AS id, * FROM posts WHERE id = ?', id, (err, row) => {
       if (err) {
         reject(err)
       }
@@ -28,7 +28,19 @@ export function fetchPost(id) {
 
 export function insertPost(post) {
   return new Promise((resolve, reject) => {
-    db.run('INSERT INTO posts VALUES (?, ?, ?)', post.title, post.body, post.date, (err, row) => {
+    db.run('INSERT INTO posts VALUES (?, ?, ?)', post.title, post.body, post.date, (err) => {
+      if (err) {
+        reject(err)
+      }
+
+      resolve()
+    })
+  })
+}
+
+export function deletePost(id) {
+  return new Promise((resolve, reject) => {
+    db.run('DELETE FROM posts WHERE rowid = ?', id, (err) => {
       if (err) {
         reject(err)
       }
