@@ -21,7 +21,7 @@ export default async function Posts() {
             </h2>
           </Link>
           <article>
-            {post.body.substring(0, 1400)}
+            {post.body && post.body.substring(0, Math.min(post.body.length, 1400))}
           </article>
         </div>
       ))}

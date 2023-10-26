@@ -7,7 +7,8 @@ export default function PostsPage() {
       <div className="text-xl mb-5">
         <Link href="/">&lt;-</Link>
       </div>
-      <h1 className="text-3xl">All Posts</h1>
+      <h1 className="text-3xl mb-5">All Posts</h1>
+      <Link className="underline" href="/posts/new">Add post</Link>
       <Posts />
     </main>
   )

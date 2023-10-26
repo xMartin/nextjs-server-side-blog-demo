@@ -20,7 +20,7 @@ export default async function Teasers() {
               </span>
             </h2>
             <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-              {teaser.body.substring(0, 140)}
+              {teaser.body && teaser.body.substring(0, Math.min(teaser.body.length, 140))}
             </p>
           </Link>
         ))}
