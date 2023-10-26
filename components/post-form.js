@@ -1,4 +1,4 @@
-export default function PostForm({ action, post }) {
+export default function PostForm({ action, post = {} }) {
   return (
     <form action={action}>
       <div className="mb-3">
