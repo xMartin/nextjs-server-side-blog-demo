@@ -7,31 +7,30 @@ async function getData() {
   return data
 }
   
-export default async function Teasers() {
-  const teasers = await getData()
+export default async function Posts() {
+  const posts = await getData()
 
   return (
-    <div className="mb-32 lg:mb-0">
-      <div className="grid lg:grid-cols-4">
-        {teasers.map((teaser) => (
+    <>
+      {posts.map((post) => (
+        <div key={post.id} className="mb-12">
           <Link
-            key={teaser.id}
-            href={`posts/${teaser.id}`}
+            key={post.id}
+            href={`posts/${post.id}`}
             className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
           >
             <h2 className={`mb-3 text-2xl font-semibold`}>
-              {teaser.title}{' '}
+              {post.title}{' '}
               <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                 -&gt;
               </span>
             </h2>
-            <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-              {teaser.body.substring(0, 140)}
-            </p>
           </Link>
-        ))}
-      </div>
-      <Link className="block text-right" href="/posts">all posts -&gt;</Link>
-    </div>
+          <article>
+            {post.body.substring(0, 1400)}
+          </article>
+        </div>
+      ))}
+    </>
   )
 }

@@ -10,7 +10,7 @@ export default function Home() {
         <h1 className="text-3xl">My good old server-side blog</h1>
       </div>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
+      <div className="mb-32 lg:mb-0 lg:max-w-5xl lg:w-full">
         <Teasers />
       </div>
     </main>
