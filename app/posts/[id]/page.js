@@ -19,6 +19,7 @@ export default function PostPage({ params: { id } }) {
       <div className="mb-5">
         <Post id={id} />
       </div>
+      <Link href={`/posts/${id}/edit`} className="underline">Edit post</Link>
       <form action={deletePostAction}>
         <button type="submit" className="underline">Delete post</button>
       </form>

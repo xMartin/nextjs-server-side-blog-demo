@@ -49,3 +49,15 @@ export function deletePost(id) {
     })
   })
 }
+
+export function updatePost(post) {
+  return new Promise((resolve, reject) => {
+    db.run('UPDATE posts SET title = ?, body = ? WHERE rowid = ?', post.title, post.body, post.id, (err) => {
+      if (err) {
+        reject(err)
+      }
+
+      resolve()
+    })
+  })
+}
