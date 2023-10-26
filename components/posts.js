@@ -1,14 +1,8 @@
-import { posts } from '@/mock-data'
+import { fetchPosts } from '@/db';
 import Link from 'next/link'
 
-async function getData() {
-  const data = await Promise.resolve(posts)
-
-  return data
-}
-  
 export default async function Posts() {
-  const posts = await getData()
+  const posts = await fetchPosts()
 
   return (
     <>

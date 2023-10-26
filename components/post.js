@@ -1,13 +1,7 @@
-import { posts } from '@/mock-data'
-
-async function getData(postId) {
-  const data = await Promise.resolve(posts.find((post) => post.id.toString() === postId))
-
-  return data
-}
-    
+import { fetchPost } from '@/db';
+ 
 export default async function Post({ id }) {
-  const post = await getData(id)
+  const post = await fetchPost(id)
 
   return (
     <>

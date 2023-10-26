@@ -1,14 +1,8 @@
-import { posts } from '@/mock-data'
+import { fetchPosts } from '@/db';
 import Link from 'next/link'
-
-async function getData() {
-  const data = await Promise.resolve(posts)
-
-  return data
-}
   
 export default async function Teasers() {
-  const teasers = await getData()
+  const teasers = await fetchPosts()
 
   return (
     <div className="mb-32 lg:mb-0">
