@@ -2,9 +2,9 @@ import sqlite3 from 'sqlite3'
 
 const db = new sqlite3.Database('./db.sqlite3')
 
-export function fetchPosts() {
+export function fetchPosts(limit = 199) {
   return new Promise((resolve, reject) => {
-    db.all('SELECT rowid AS id, * FROM posts ORDER BY date DESC', (err, rows) => {
+    db.all('SELECT rowid AS id, * FROM posts ORDER BY date DESC LIMIT ?', limit, (err, rows) => {
       if (err) {
         reject(err)
       }

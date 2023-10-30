@@ -1,8 +1,8 @@
 import { fetchPosts } from '@/db';
 import Link from 'next/link'
   
-export default async function Teasers() {
-  const teasers = await fetchPosts()
+export default async function Teasers({ number = 4}) {
+  const teasers = await fetchPosts(number)
 
   return (
     <div className="mb-32 lg:mb-0">
