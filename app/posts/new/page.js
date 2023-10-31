@@ -16,10 +16,11 @@ export default function NewPost() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col p-24">
+    <main className="flex min-h-screen flex-col p-12 lg:p-24">
       <div className="text-xl mb-5">
         <Link href="/">&lt;-</Link>
       </div>
+      <h1 className="text-3xl mb-3">New Post</h1>
       <PostForm action={savePost} />
     </main>
   )
