@@ -1,8 +1,13 @@
 import { fetchPost } from '@/db';
 import { MDXRemote } from 'next-mdx-remote/rsc'
+import { notFound } from 'next/navigation'
  
 export default async function Post({ id }) {
   const post = await fetchPost(id)
+
+  if (!post) {
+    notFound()
+  }
 
   return (
     <>
