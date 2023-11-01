@@ -1,4 +1,5 @@
 import { fetchPosts } from '@/db';
+import { MDXRemote } from 'next-mdx-remote/rsc'
 import Link from 'next/link'
   
 export default async function Teasers({ number = 4}) {
@@ -19,9 +20,9 @@ export default async function Teasers({ number = 4}) {
                 -&gt;
               </span>
             </h2>
-            <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-              {teaser.body && teaser.body.substring(0, Math.min(teaser.body.length, 140))}
-            </p>
+            <article className={`m-0 max-w-[30ch] text-sm opacity-50`}>
+              <MDXRemote source={teaser.body && teaser.body.substring(0, Math.min(teaser.body.length, 140))} />
+            </article>
           </Link>
         ))}
       </div>

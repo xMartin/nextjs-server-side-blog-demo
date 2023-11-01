@@ -1,4 +1,5 @@
 import { fetchPosts } from '@/db';
+import { MDXRemote } from 'next-mdx-remote/rsc'
 import Link from 'next/link'
 
 export default async function Posts() {
@@ -19,8 +20,8 @@ export default async function Posts() {
               </span>
             </h2>
           </Link>
-          <article>
-            {post.body && post.body.substring(0, Math.min(post.body.length, 1400))}
+          <article className="prose dark:prose-invert lg:prose-xl">
+            <MDXRemote source={post.body && post.body.substring(0, Math.min(post.body.length, 1400))} />
           </article>
         </div>
       ))}
